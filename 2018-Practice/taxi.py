@@ -4,7 +4,7 @@ class ride:
         self.startX = a
         self.finishX = x
         self.startY = b
-        self.finishX = y
+        self.finishY = y
         self.early = s
         self.late = f
         self.start = [a,b]
@@ -14,15 +14,9 @@ class ride:
 class Taxi:
     rides = []
 
-    def __init__(self,R,C,F,N,B,T,P):
-        self.rows = R
-        self.cols = C
-        self.vehicleCount = F
-        self.rideCount = N
-        self.bonus = B
-        self.steps = T
-        self.tempRides = P
-      
+    def __init__(self,params):
+        self.rows, self.cols, self.vehicleCount, self.rideCount, self.bonus, self.steps, self.tempRides = params
+        
         
     def rideConvert(self):
         for r in self.tempRides:
