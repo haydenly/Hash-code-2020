@@ -1,5 +1,5 @@
 #ride class for each individual ride
-class ride:
+class Ride:
     def __init__(self,a,b,x,y,s,f):
         self.startX = a
         self.finishX = x
@@ -9,6 +9,9 @@ class ride:
         self.late = f
         self.start = [a,b]
         self.finish = [x,y]
+        self.distance = abs(x - a) + abs(y - b)
+        self.latestStart = self.late - self.distance - 1
+        self.taxi = None
 
 #taxi class stores all the rides and data
 class Taxi:
@@ -21,5 +24,7 @@ class Taxi:
     def rideConvert(self):
         for r in self.tempRides:
             self.rides.append(ride(r[0],r[1],r[2],r[3],r[4],r[5]))
+
+
     
 
