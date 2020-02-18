@@ -25,6 +25,8 @@ class Taxi:
         for r in self.tempRides:
             self.rides.append(ride(r[0],r[1],r[2],r[3],r[4],r[5]))
 
+        
+
 
     
 

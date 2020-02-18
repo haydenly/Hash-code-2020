@@ -1,3 +1,5 @@
+import csv 
+
 def load_data(fname):
     f = open(fname, mode="r")
     r = csv.reader(f, delimiter = " ")
