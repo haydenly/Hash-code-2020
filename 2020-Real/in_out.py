@@ -23,6 +23,7 @@ def out_data(fname, scannedbooks):
     for i in range(m):
         curr_lib = scannedbooks[i]
         curr_books = curr_lib[1:]
-        w.writerow([curr_lib[0],len(curr_books)])
-        w.writerow(curr_books)
+        if curr_lib[0]!=0:
+            w.writerow([curr_lib[0],len(curr_books)])
+            w.writerow(curr_books)
     o.close()
