@@ -12,7 +12,7 @@ def load_data(fname):
     libs_raw = data [2:]
     libs = []
     for i in range(len(libs_raw)//2):
-        libs.append([libs_raw[i],libs_raw[i+1]])
+        libs.append([libs_raw[2*i],libs_raw[2*i+1]])
     return (params, bookscores, libs)
 
 def out_data(fname, data):
