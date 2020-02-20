@@ -24,7 +24,7 @@ class library:
         self.ID = ID
         self.timeLim = timeLim
         self.score = 0
-        self.booksInLib = sorted([book(bookScores[index], index) for index in bookIndexes], reverse = True)
+        self.booksInLib = book(bookScores[index], index) for index in bookIndexes]
     
     def setScore(timeRemaining): 
         daysOfProccessing = timeRemaining - lib.signUpTime
