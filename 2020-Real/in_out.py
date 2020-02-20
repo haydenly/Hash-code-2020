@@ -12,12 +12,17 @@ def load_data(fname):
     libs_raw = data [2:]
     libs = []
     for i in range(len(libs_raw)//2):
-        libs.append([libs_raw[2*i],libs_raw[2*i+1]])
+        libs.append([libs_raw[i],libs_raw[i+1]])
     return (params, bookscores, libs)
 
-def out_data(fname, data):
+def out_data(fname, order, scannedbooks):
     o = open(fname, "w")
     w = csv.writer(o, delimiter=" ", lineterminator="\n")
-    for ride in rides:
-        w.writerow(ride)
+    m = scannedbooks.length()
+    w.writerow(m)
+    for i in range(m):
+        n = scannedbooks[i].length()
+        w.write(i)
+        w.write(n)
+        w.writerow(scannedbooks[i])
     o.close()
