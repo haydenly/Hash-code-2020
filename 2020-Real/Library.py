@@ -25,7 +25,8 @@ class library:
         self.timeLim = timeLim
         self.score = 0
         self.booksInLib = sorted([book(bookScores[index], index) for index in bookIndexes], reverse = True, key = lambda x : x.score)
-    
+        self.bookIndexes = list(map(lambda x: x.id, self.booksInLib))
+
     def setScore(timeRemaining): 
         daysOfProccessing = timeRemaining - lib.signUpTime
         booksCanProccess = min(daysOfProccessing * lib.booksPerDay, lib.numberOfbooks)
