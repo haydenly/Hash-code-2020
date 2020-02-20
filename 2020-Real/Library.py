@@ -1,3 +1,5 @@
+from in_out import *
+
 class book:
     score = 0
     def __init__(self,score):
@@ -21,6 +23,15 @@ class library:
         self.numberOfbooks = len(bookIndexes)
         self.ID = ID
         self.timeLim = timeLim
+        self.score = 0
     
+    def setScore(timeRemaining): 
+        daysOfProccessing = timeRemaining - lib.signUpTime
+        booksCanProccess = min(daysOfProccessing * lib.booksPerDay, lib.numberOfbooks)
+
+        ##ASSUMES LIST OF BOOKS IN ORDER OF SCORE
+        totalThroughput = sum(lib.bookScoresInLib[:booksCanProccess])
+        score = totalThroughput
 
 
+    
