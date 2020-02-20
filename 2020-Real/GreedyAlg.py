@@ -12,6 +12,16 @@ def maxLibrary(libraries):
             maxBook = i.numberOfbooks
     return maxLib
 
+def scoreSort(currentTime,libraries):
+    maxLib = None
+    maxBook = 0
+    for i in libraries:
+        if(i.numberOfbooks >= maxBook):
+            maxLib = i
+            
+            maxBook = i.numberOfbooks
+    return maxLib
+
 def sortBooks(books,bookScore):
     books.sort(key = lambda x: bookScore[x], reverse = True)
     return books
@@ -44,10 +54,23 @@ def alg(timeLim, libraries):
         
 
 
-libraries = preproccess.getLibraries("a_example.txt")
-outputMatrix = alg(libraries[0].timeLim,libraries)
-print(outputMatrix)
-in_out.out_data("a_example_answer.txt", outputMatrix)
+
+
+b = "b_read_on"
+c = "c_incunabula"
+d = "d_tough_choices"
+e = "e_so_many_books"
+f = "f_libraries_of_the_world"
+anslist = [b,c,d,e,f]
+
+def solve(anslist):
+    for i in anslist:
+        libraries = preproccess.getLibraries(i + ".txt")
+        outputMatrix = alg(libraries[0].timeLim,libraries)
+        in_out.out_data(i + "answer.txt", outputMatrix)
+
+solve(anslist)
+
 
 
 
