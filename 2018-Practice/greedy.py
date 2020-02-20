@@ -1,7 +1,8 @@
 from in_out import *
 from taxi import *
+from pprint import pprint
 
-params, rawRides = load_data("d_metropolis.in")
+params, rawRides = load_data("c_no_hurry.in")
 
 vehicleCount = params[2]
 bonus = params[4]
@@ -34,7 +35,12 @@ for i in range(1, vehicleCount + 1):
                 currentX = ride.finishX
                 currentY = ride.finishY
 
+ridesMap = {i+1:[] for i in range(vehicleCount)}
 for (i, ride) in enumerate(rides):
-    print(i, ride.taxi)
+    if ride.taxi != None:
+        ridesMap[ride.taxi].append(i)
+    
 
+pprint(ridesMap)
+print("Total rides", len(rawRides))
 print(points)
