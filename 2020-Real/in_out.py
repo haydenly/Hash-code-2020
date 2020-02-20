@@ -19,7 +19,7 @@ def out_data(fname, scannedbooks):
     o = open(fname, "w")
     w = csv.writer(o, delimiter=" ", lineterminator="\n")
     m = len(scannedbooks)
-    w.writerow(m)
+    w.writerow([m])
     for i in range(m):
         curr_lib = scannedbooks[i]
         curr_books = curr_lib[1:]

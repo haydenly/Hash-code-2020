@@ -1,16 +1,19 @@
 import Library
+import in_out
+import preproccess
 
 def maxLibrary(libraries):
     maxLib = None
     maxBook = 0
     for i in libraries:
-        if(i.numberOfbooks > maxBook):
+        if(i.numberOfbooks >= maxBook):
             maxLib = i
+            
             maxBook = i.numberOfbooks
     return maxLib
 
 def sortBooks(books,bookScore):
-    books.sort(key = lambda x: bookScore[x], reversed = True)
+    books.sort(key = lambda x: bookScore[x], reverse = True)
     return books
 
 def chooseBooks(library,time,timeLim):   
@@ -27,6 +30,8 @@ def alg(timeLim, libraries):
     currentTime = 0
     while(currentTime <= timeLim):
         maxLib = maxLibrary(libraries)
+        if(maxLib == None):
+            break
         if(currentTime + maxLib.signUpTime >= timeLim):
             break
         libraries.remove(maxLib)
@@ -35,8 +40,14 @@ def alg(timeLim, libraries):
         output.append([maxLib.ID])
         outputLibs += 1
         output[outputLibs] = output[outputLibs] + bookChoice
+    return output
         
 
+
+libraries = preproccess.getLibraries("a_example.txt")
+outputMatrix = alg(libraries[0].timeLim,libraries)
+print(outputMatrix)
+in_out.out_data("a_example_answer.txt", outputMatrix)
 
 
 
