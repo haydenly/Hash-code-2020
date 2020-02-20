@@ -22,16 +22,16 @@ def chooseBooks(library,time,timeLim):
     return finalChoice
 
 def alg(timeLim, libraries):
-    output = [[]]
+    output = []
     outputLibs = -1
     currentTime = 0
     while(currentTime <= timeLim):
         maxLib = maxLibrary(libraries)
-        if(time + maxLib.signUpTime >= timeLim):
+        if(currentTime + maxLib.signUpTime >= timeLim):
             break
         libraries.remove(maxLib)
         bookChoice = chooseBooks(maxLib,currentTime,timeLim)
-        currentTime = time + maxLib.signUpTime
+        currentTime = currentTime + maxLib.signUpTime
         output.append([maxLib.ID])
         outputLibs += 1
         output[outputLibs] = output[outputLibs] + bookChoice

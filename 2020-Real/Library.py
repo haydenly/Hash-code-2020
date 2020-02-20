@@ -10,15 +10,17 @@ class library:
     numberOfbooks = 0
     signUpTime  = 0
     booksPerDay  = 0
+    timeLim = 0
 
 
-    def __init__(self, bookScores , bookIndexes , signUpTime , booksPerDay,ID):
+    def __init__(self, bookScores , bookIndexes , signUpTime , booksPerDay,ID,timeLim):
         self.bookScores=bookScores
         self.bookIndexes=bookIndexes
         self.signUpTime=signUpTime
         self.booksPerDay=booksPerDay
         self.numberOfbooks = len(bookIndexes)
         self.ID = ID
+        self.timeLim = timeLim
     
 
 
