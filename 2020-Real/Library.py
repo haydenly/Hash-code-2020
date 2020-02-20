@@ -2,8 +2,9 @@ from in_out import *
 
 class book:
     score = 0
-    def __init__(self,score):
+    def __init__(self,score, id):
         self.score = score
+        self.id = id
 
 class library:
     bookScores  = []
@@ -16,7 +17,6 @@ class library:
 
 
     def __init__(self, bookScores , bookIndexes , signUpTime , booksPerDay,ID,timeLim):
-        self.bookScores=bookScores
         self.bookIndexes=bookIndexes
         self.signUpTime=signUpTime
         self.booksPerDay=booksPerDay
@@ -24,6 +24,7 @@ class library:
         self.ID = ID
         self.timeLim = timeLim
         self.score = 0
+        self.booksInLib = sorted([book(bookScores[index], index) for b in bookIndexes], reverse = True)
     
     def setScore(timeRemaining): 
         daysOfProccessing = timeRemaining - lib.signUpTime
