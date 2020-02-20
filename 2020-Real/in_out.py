@@ -15,14 +15,14 @@ def load_data(fname):
         libs.append([libs_raw[i],libs_raw[i+1]])
     return (params, bookscores, libs)
 
-def out_data(fname, order, scannedbooks):
+def out_data(fname, scannedbooks):
     o = open(fname, "w")
     w = csv.writer(o, delimiter=" ", lineterminator="\n")
-    m = scannedbooks.length()
+    m = len(scannedbooks)
     w.writerow(m)
     for i in range(m):
-        n = scannedbooks[i].length()
-        w.write(i)
-        w.write(n)
-        w.writerow(scannedbooks[i])
+        curr_lib = scannedbooks[i]
+        curr_books = curr_lib[1:]
+        w.writerow([curr_lib[0],len(curr_books)])
+        w.writerow(curr_books)
     o.close()
