@@ -23,17 +23,24 @@ class library:
         self.numberOfbooks = len(bookIndexes)
         self.ID = ID
         self.timeLim = timeLim
-        self.score = 0
+
         booksInLib = sorted([book(bookScores[index], index) for index in bookIndexes], reverse = True, key = lambda x : x.score)
         self.bookIndexes = list(map(lambda x: x.id, booksInLib))
+        
+        self.bookScoresInLib = list(map(lambda x: x.score, booksInLib))
 
-    def setScore(timeRemaining): 
-        daysOfProccessing = timeRemaining - lib.signUpTime
-        booksCanProccess = min(daysOfProccessing * lib.booksPerDay, lib.numberOfbooks)
 
+        self.setScore(timeLim)
+        
+
+    def setScore(self, timeRemaining): 
+        daysOfProccessing = timeRemaining - self.signUpTime
+        booksCanProccess = min(daysOfProccessing * self.booksPerDay, self.numberOfbooks)
+   
         ##ASSUMES LIST OF BOOKS IN ORDER OF SCORE
-        totalThroughput = sum(lib.bookScoresInLib[:booksCanProccess])
-        score = totalThroughput
+        totalThroughput = sum(self.bookScoresInLib[:booksCanProccess])
+        
+        self.score = totalThroughput
 
 
     
