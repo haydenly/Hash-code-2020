@@ -29,7 +29,7 @@ class library:
         
         self.bookScoresInLib = list(map(lambda x: x.score, booksInLib))
 
-
+        self.score = 0
         self.setScore(timeLim)
         
 
